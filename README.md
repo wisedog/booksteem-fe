@@ -1,7 +1,5 @@
 # booksteem-fe
 
-[![Build Status](https://travis-ci.org/wisedog/booksteem-fe.svg?branch=master)](https://travis-ci.org/wisedog/booksteem-fe)
-
 [Booksteem.kr](https://booksteem.kr) frontend repository. vue.js + vuerouter + vuex + onsen ui
 
 Contributing
