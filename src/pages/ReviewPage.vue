@@ -25,13 +25,13 @@
       </div>
     </v-ons-pull-hook>
     <v-ons-row class="dropdown-row">
-      <v-ons-select style="margin: auto; width: 25%;" v-model="selectedItem" @change="handleFirstChange()">
+      <v-ons-select class="dropdown" v-model="selectedItem" @change="handleFirstChange()">
         <option v-for="item in items" :value="item.value" :key="item.value">
           {{ item.text }}
         </option>
       </v-ons-select>
 
-      <v-ons-select style="margin: auto; width: 25%;" v-model="selectedItemSecond" @change="handleSecondChange()">
+      <v-ons-select class="dropdown" v-model="selectedItemSecond" @change="handleSecondChange()">
         <option v-for="cate in category_list" :value="cate.author" :key="cate.author">
           {{ cate.author }}
         </option>
@@ -39,26 +39,26 @@
     </v-ons-row>
     <v-ons-list>
       <v-ons-list-item v-for="review in reviews" :key="review.id">
-        <div style="clear: both;">
-          <img :src="review.book_img_url" class="image" style="float: left;" />
+        <div style="clear: both; width: 100%;">
+          <img :src="review.book_img_url" class="image"/>
           <div style="padding: 14px;">
             <span class="ml-14 font-lg" ><strong>{{review.book_name}}</strong></span>
             <div>
-              <span>
+              <span class="ml-14">
                 {{review.book_author}} / {{review.book_publisher}}
                 <a :href="review.book_info_link" target="blank">책 정보<v-ons-icon icon="fa-external-link"></v-ons-icon></a>
               </span>
             </div>
             <div class="clearfix" style="margin-top: 13px;">
               <div>
-                <span>
+                <span class="ml-14">
                   {{review.author}}
                   <a :href="`https://steemit.com/@${review.author}/${review.permlink}`" target="blank">{{review.title}}
                   <v-ons-icon icon="fa-external-link"></v-ons-icon></a>
                   </span>
               </div>
               <div>
-                <span>
+                <span class="ml-14">
                   {{review.created}}
                   <v-ons-icon icon="fa-chevron-up"  style="margin-left: 5px;"/>{{review.net_votes}}
                   <v-ons-icon icon="fa-usd" style="margin-left: 5px;"/>{{review.total_earn.toFixed(2)}}
@@ -99,6 +99,8 @@ export default {
     }
   },
   created () {
+  },
+  mounted () {
     var c = this.$route.query.category
     if (c !== undefined) {
       this.selectedItem = 'category'
@@ -188,6 +190,24 @@ export default {
 </script>
 
 <style scoped>
+
+.dropdown {
+    width: 25%;
+    margin: auto;
+}
+
+.image {
+  float: left;
+}
+
+.font-lg {
+  font-size: large;
+}
+
+.ml-14{
+  margin-left: 14px;
+}
+
 .after-list {
   margin: 20px;
   text-align: center;
@@ -198,4 +218,38 @@ export default {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+@media ( max-width: 1024px ) {
+  .image {
+    float: left;
+  }
+  .dropdown {
+    width: 25%;
+    margin: auto;
+  }
+}
+@media ( max-width: 480px ) {
+  .profile {
+    width: 120px;
+  }
+  .font-sm{
+    font-size: small;
+  }
+  .resizable {
+    flex: 100%;
+  }
+  .authors {
+    flex: 50%;
+    min-width: 33%;
+  }
+  .image {
+    width: 70px;
+    float: left;
+  }
+  .dropdown {
+    width: 40%;
+    margin: auto;
+  }
+}
+
 </style>

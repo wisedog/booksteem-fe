@@ -116,7 +116,7 @@ export default {
   data () {
     return {
       msg: 'blahblah',
-      selectedItem: 'payout',
+      selectedItem: 'review',
       reviews: [],
       authors: [],
       cates: []
@@ -126,7 +126,7 @@ export default {
     ReviewAPI.review(1, 5).then(response => {
       this.reviews = response.data
     })
-    AuthorAPI.authors(1, 6, 'payout').then(response => {
+    AuthorAPI.authors(1, 6, 'reviews').then(response => {
       this.authors = response.data
     })
     CategoryStatAPI.stat('review').then(response => {
