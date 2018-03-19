@@ -1,6 +1,7 @@
-# booksteem-fe
+# booksteem-fe 
+[![CircleCI](https://circleci.com/gh/wisedog/booksteem-fe.svg?style=shield)](https://circleci.com/gh/wisedog/booksteem-fe)
 
-[Booksteem.kr](https://booksteem.kr) frontend repository. vue.js + vuerouter + vuex + onsen ui
+[Booksteem.kr](https://booksteem.kr) frontend repository. vue.js + vue-router + vuex + onsen ui
 
 Contributing
 -----
